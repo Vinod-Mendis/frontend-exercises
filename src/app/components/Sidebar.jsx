@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 
 export default function Sidebar({ onSelectFunction }) {
-  const exercises = ["Navbar", "Modal", "Quiz"];
+  const exercises = ["Navbar", "Modal", "Quiz"]; // <----- add your component name here (one word)
   const [selectedExercise, setSelectedExercise] = useState(null);
   const handleSelectExercise = (exercise) => {
     setSelectedExercise(exercise);

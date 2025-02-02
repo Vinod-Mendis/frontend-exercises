@@ -5,6 +5,7 @@ import { useState } from "react";
 import Sidebar from "./components/Sidebar";
 import Navbar from "./components/navbar/NavBar";
 import Modal from "./components/modal/Modal";
+import QuizApp from "./components/quiz/QuizApp";
 // import the your component here (the component file name should not be Page.jsx)
 
 export default function Home() {
@@ -23,8 +24,8 @@ export default function Home() {
         <div className="w-full h-5/6 mt-10 p-20 bg-slate-50 rounded-xl flex justify-center items-center ">
           {selectedExercise === "Navbar" && <Navbar />}
           {selectedExercise === "Modal" && <Modal />}
-          {/* Go to the sidebar component and add the your component name in the exercises array. */}
-          {/* then conditionally render the component as done above. */}
+          {selectedExercise === "Quiz" && <QuizApp />}
+          
         </div>
       </div>
     </div>

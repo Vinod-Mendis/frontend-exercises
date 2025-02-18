@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import QuestionCard from "../quiz/QuestionCard";
-import ProgressBar from "../quiz/ProgressBar";
-import ScoreModal from "../quiz/ScoreModal";
+import QuestionCard from "./QuestionCard";
+import ProgressBar from "./ProgressBar";
+import ScoreModal from "./ScoreModal";
 
 const questions = [
   { id: 1, text: "Known for the Eiffel Tower and Louvre Museum, which city is France's capital?", options: ["Madrid", "Paris", "Rome", "Berlin"], correct: 1 },

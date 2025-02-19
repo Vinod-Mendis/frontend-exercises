@@ -1,7 +1,9 @@
 /** @format */
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+
 import Navbar from "./components/navbar/NavBar";
 import Modal from "./components/modal/Modal";
 import QuizApp from "./components/quiz/QuizApp";
@@ -15,6 +17,15 @@ import Sidebar from "../components/Sidebar";
 
 export default function Home() {
   const [selectedExercise, setSelectedExercise] = useState("Navbar");
+  const router = useRouter();
+
+  useEffect(() => {
+    const isAuthenticated = localStorage.getItem("pathini") === "true";
+
+    if (!isAuthenticated) {
+      router.push("/");
+    }
+  }, [router]);
 
   const handleSelect = (exercise) => {
     setSelectedExercise(exercise);

@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Eye, EyeOff } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -16,6 +17,7 @@ export default function Login() {
   });
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -33,12 +35,14 @@ export default function Login() {
       formData.username === "pathini" &&
       formData.password === "pathini@fly"
     ) {
-      window.location.href = "/pathini";
+      localStorage.setItem("pathini", "true");
+      router.push("/pathini");
     } else if (
       formData.username === "geethmani" &&
       formData.password === "geethmani@fly"
     ) {
-      window.location.href = "/geethmani";
+      localStorage.setItem("geethmani", "true");
+      router.push("/geethmani");
     } else {
       setError("Invalid username or password");
     }
@@ -49,7 +53,7 @@ export default function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 bg-[url('/images/login_background.png')] bg-cover bg-no-repeat w-full h-screen">
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center">

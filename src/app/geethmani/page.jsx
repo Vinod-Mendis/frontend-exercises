@@ -1,7 +1,19 @@
-import React from 'react'
+/** @format */
+
+"use client";
+
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function page() {
-  return (
-    <div>geethmani</div>
-  )
+  const router = useRouter();
+  useEffect(() => {
+    const isAuthenticated = localStorage.getItem("geethmani") === "true";
+
+    if (!isAuthenticated) {
+      router.push("/");
+    }
+  }, [router]);
+
+  return <div>geethmani</div>;
 }
